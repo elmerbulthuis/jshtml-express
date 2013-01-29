@@ -1,0 +1,27 @@
+{
+    "name":	"jshtml-express"
+    , "description":	"jshtml for express"
+    , "version":	"0.0.1"
+    , "author":	"Elmer Bulthuis <elmerbulthuis@gmail.com>"
+    
+    , "repositories":	[
+        {
+            "type": "git"
+            , "url": "git@github.com:elmerbulthuis/jshtml-express.git"
+        }
+    ]
+
+    , "main": "index.js"
+    , "scripts": {
+        "test": "mocha test/* --reporter spec"
+    }
+    
+    , "dependencies":	{
+        "jshtml": ">=0.3"
+	}
+    , "devDependencies":	{
+	   "mocha": "*"
+       , "express": "3"
+    }
+
+}
