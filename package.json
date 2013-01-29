@@ -16,11 +16,11 @@
     }
     
     , "dependencies":	{
-        "jshtml": "*"
+        "jshtml": ">=0.3"
 	}
     , "devDependencies":	{
 	   "mocha": "*"
-       , "express": "*"
+       , "express": "3"
     }
 
 }
