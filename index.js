@@ -34,12 +34,12 @@ function compile(src, options){
 	src = jshtml.parse(src);
 	src = 'with(locals){' + src + '}';
 
-	var fn = new Function('write', 'end', 'tag', 'tools', 'locals', src);
+	var fn = new Function('write', 'end', 'tag', 'tools', 'locals', 'writeBody', 'writePartial', src);
 
 	return function(options) {
 		var result = '';
 
-		fn.call(options.scope, write, end, tag, tools, options._locals);
+		fn.call(options.scope, write, end, tag, tools, options._locals, writeBody, writePartial);
 
 		return result;
 
@@ -87,11 +87,11 @@ function compile(src, options){
 		}
 
 		function writePartial() {
-			write(locals.partial.apply(options.scope, arguments));
+			write(options._locals.partial.apply(options.scope, arguments));
 		}//writePartial
 
 		function writeBody() {
-			write(locals.body);
+			write(options._locals.body || options.body);
 		}//writeBody
 
 		function write(){
